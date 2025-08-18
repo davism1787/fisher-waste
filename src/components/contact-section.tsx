@@ -99,7 +99,7 @@ export function ContactSection() {
             <CardHeader>
               <CardTitle className="text-2xl">Send Us a Message</CardTitle>
               <CardDescription>
-                Fill out the form below and we'll get back to you within 2 hours during business hours
+                Fill out the form below and we&apos;ll get back to you within 2 hours during business hours
               </CardDescription>
             </CardHeader>
             <CardContent>

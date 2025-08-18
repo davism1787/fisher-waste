@@ -89,13 +89,10 @@ export async function POST(request: NextRequest) {
 
     // Update availability for dumpster rentals
     if (serviceType === 'dumpster' && startDate) {
-      const { error: updateError } = await supabase
-        .from('availability')
-        .update({ 
-          available_slots: supabase.sql`available_slots - 1` 
-        })
-        .eq('date', startDate)
-        .eq('service_type', 'dumpster');
+      const { error: updateError } = await supabase.rpc('decrement_available_slots', {
+        target_date: startDate,
+        target_service_type: 'dumpster'
+      });
 
       if (updateError) {
         console.error('Availability update error:', updateError);

@@ -2,8 +2,8 @@
 
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
+    gtag: (...args: unknown[]) => void;
+    dataLayer: unknown[];
   }
 }
 
@@ -14,8 +14,8 @@ export const initGA = () => {
   if (!GA_TRACKING_ID) return;
 
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag() {
-    window.dataLayer.push(arguments);
+  window.gtag = function gtag(...args: unknown[]) {
+    window.dataLayer.push(args);
   };
   
   window.gtag('js', new Date());
@@ -36,7 +36,7 @@ export const trackPageView = (url: string, title?: string) => {
 };
 
 // Track custom events
-export const trackEvent = (eventName: string, parameters?: any) => {
+export const trackEvent = (eventName: string, parameters?: Record<string, unknown>) => {
   if (!GA_TRACKING_ID || typeof window.gtag === 'undefined') return;
   
   window.gtag('event', eventName, parameters);

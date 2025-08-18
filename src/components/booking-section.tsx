@@ -124,7 +124,7 @@ export function BookingSection() {
           <CardHeader>
             <CardTitle className="text-2xl">Service Request</CardTitle>
             <CardDescription>
-              Fill out the form below and we'll get back to you with a quote within 2 hours
+              Fill out the form below and we&apos;ll get back to you with a quote within 2 hours
             </CardDescription>
           </CardHeader>
           <CardContent>
