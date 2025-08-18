@@ -57,7 +57,7 @@ export function FAQSection() {
             <li>League City</li>
             <li>Conroe</li>
           </ul>
-          <p className="mt-3"><strong>Not sure if we serve your area?</strong> Call us at (713) 555-0123 or use our booking form - we'll let you know if we can reach you!</p>
+          <p className="mt-3"><strong>Not sure if we serve your area?</strong> Call us at (713) 555-0123 or use our booking form - we&apos;ll let you know if we can reach you!</p>
         </div>
       )
     },
@@ -128,7 +128,7 @@ export function FAQSection() {
               <li>Medical waste</li>
             </ul>
           </div>
-          <p><strong>Have questions about specific items?</strong> Call us at (713) 555-0123 - we're happy to help!</p>
+          <p><strong>Have questions about specific items?</strong> Call us at (713) 555-0123 - we&apos;re happy to help!</p>
         </div>
       )
     }

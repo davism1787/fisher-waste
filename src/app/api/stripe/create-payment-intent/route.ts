@@ -52,10 +52,11 @@ export async function POST(request: NextRequest) {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amountInCents,
       currency: 'usd',
-      customer_email: customerEmail,
+      receipt_email: customerEmail,
       metadata: {
         bookingId: bookingId,
         serviceType: booking.service_type,
+        customerEmail: customerEmail,
         ...metadata
       },
       description: `Fisher Waste - ${booking.service_type} service for ${customerName || customerEmail}`,

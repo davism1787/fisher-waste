@@ -93,6 +93,16 @@ CREATE TRIGGER update_bookings_updated_at BEFORE UPDATE ON bookings
 CREATE TRIGGER update_dumpster_pricing_updated_at BEFORE UPDATE ON dumpster_pricing
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
+-- Create function to decrement available slots
+CREATE OR REPLACE FUNCTION decrement_available_slots(target_date date, target_service_type text)
+RETURNS void AS $$
+BEGIN
+  UPDATE availability 
+  SET available_slots = available_slots - 1 
+  WHERE date = target_date AND service_type = target_service_type;
+END;
+$$ LANGUAGE plpgsql;
+
 -- Enable Row Level Security (RLS)
 ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE contact_submissions ENABLE ROW LEVEL SECURITY;
