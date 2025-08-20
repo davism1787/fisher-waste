@@ -31,7 +31,7 @@ export function HeroSection() {
       {/* Parallax Background */}
       <div
         ref={parallaxRef}
-        className="absolute inset-0 bg-gradient-to-br from-primary to-blue-800 parallax"
+        className="absolute inset-0 bg-gradient-to-br from-primary to-secondary parallax"
       >
         <div className="absolute inset-0 bg-black/20"></div>
       </div>
@@ -40,10 +40,10 @@ export function HeroSection() {
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
           Professional Waste Management
-          <span className="block text-blue-200">Solutions in Houston</span>
+          <span className="block text-accent">Solutions in Houston</span>
         </h1>
         
-        <p className="text-xl sm:text-2xl mb-8 text-blue-100 max-w-2xl mx-auto">
+        <p className="text-xl sm:text-2xl mb-8 text-accent/80 max-w-2xl mx-auto">
           Reliable dumpster rentals, junk removal, and demolition services. 
           Same-day availability with transparent pricing.
         </p>
@@ -68,7 +68,7 @@ export function HeroSection() {
         </div>
 
         {/* Trust Indicators */}
-        <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-blue-100">
+        <div className="mt-12 flex flex-wrap justify-center items-center gap-8 text-accent/80">
           <div className="flex items-center space-x-2">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />

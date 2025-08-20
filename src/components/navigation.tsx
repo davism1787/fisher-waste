@@ -46,7 +46,7 @@ export function Navigation() {
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
                   isScrolled 
                     ? "text-gray-700 hover:text-primary" 
-                    : "text-white hover:text-blue-200"
+                    : "text-white hover:text-accent"
                 }`}
               >
                 Services
@@ -56,7 +56,7 @@ export function Navigation() {
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
                   isScrolled 
                     ? "text-gray-700 hover:text-primary" 
-                    : "text-white hover:text-blue-200"
+                    : "text-white hover:text-accent"
                 }`}
               >
                 FAQ
@@ -66,7 +66,7 @@ export function Navigation() {
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
                   isScrolled 
                     ? "text-gray-700 hover:text-primary" 
-                    : "text-white hover:text-blue-200"
+                    : "text-white hover:text-accent"
                 }`}
               >
                 Contact
