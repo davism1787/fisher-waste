@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { PricingCalculator } from "@/components/pricing-calculator";
 
 export function ServicesSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -120,9 +121,7 @@ export function ServicesSection() {
                   Delivery & pickup included
                 </li>
               </ul>
-              <Button onClick={scrollToBooking} className="w-full">
-                Book Dumpster
-              </Button>
+              <PricingCalculator />
             </CardContent>
           </Card>
 
