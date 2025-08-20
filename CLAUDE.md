@@ -49,6 +49,14 @@ npm run type-check   # TypeScript type checking
 
 ## Key Implementation Requirements
 
+### UI Color Theme
+
+Primary Color: #253B21 (Deep Green)
+Secondary Color: #4A704A (Medium Green, complementary shade)
+Accent Color: #8BC34A (Light Green, for highlights)
+Neutral Color: #F5F5F5 (Off-White, background)
+Contrast Color: #FFFFFF (White, text/buttons) or #000000 (Black, for dark mode)
+
 ### Performance Targets
 - Lighthouse score: 90+
 - First Contentful Paint: < 1.5s
