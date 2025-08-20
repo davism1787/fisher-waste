@@ -45,49 +45,9 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {/* Dumpster Rental */}
-          <Card className="fade-in hover:shadow-lg transition-shadow duration-300">
-            <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-              </div>
-              <CardTitle className="text-2xl mb-2">Dumpster Rental</CardTitle>
-              <CardDescription className="text-base">
-                Temporary dumpster placement for construction, renovation, and cleanout projects
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  Multiple sizes (10-40 yard)
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  Flexible rental periods
-                </li>
-                <li className="flex items-center text-gray-600">
-                  <svg className="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  Delivery & pickup included
-                </li>
-              </ul>
-              <Button onClick={scrollToBooking} className="w-full">
-                Book Dumpster
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Junk Removal */}
-          <Card className="fade-in hover:shadow-lg transition-shadow duration-300">
+        <div className="flex flex-col md:flex-row md:items-center justify-center gap-8 mb-12">
+          {/* Junk Removal - Left */}
+          <Card className="fade-in hover:shadow-lg transition-shadow duration-300 md:w-[300px]">
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,8 +86,48 @@ export function ServicesSection() {
             </CardContent>
           </Card>
 
-          {/* Demolition Services */}
-          <Card className="fade-in hover:shadow-lg transition-shadow duration-300">
+          {/* Dumpster Rental - Center (30% larger) */}
+          <Card className="fade-in hover:shadow-lg transition-shadow duration-300 md:w-[390px] md:scale-110">
+            <CardHeader className="text-center">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </div>
+              <CardTitle className="text-2xl mb-2">Dumpster Rental</CardTitle>
+              <CardDescription className="text-base">
+                Temporary dumpster placement for construction, renovation, and cleanout projects
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center text-gray-600">
+                  <svg className="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Multiple sizes (10-40 yard)
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <svg className="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Flexible rental periods
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <svg className="w-5 h-5 text-accent mr-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  Delivery & pickup included
+                </li>
+              </ul>
+              <Button onClick={scrollToBooking} className="w-full">
+                Book Dumpster
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* Demolition Services - Right */}
+          <Card className="fade-in hover:shadow-lg transition-shadow duration-300 md:w-[300px]">
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
