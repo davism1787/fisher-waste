@@ -99,7 +99,7 @@ export function ContactSection() {
             <CardHeader>
               <CardTitle className="text-2xl">Send Us a Message</CardTitle>
               <CardDescription>
-                Fill out the form below and we&apos;ll get back to you within 2 hours during business hours
+                Fill out the form below and we&apos;ll get back to you within 12 hours during business hours
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -122,7 +122,7 @@ export function ContactSection() {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => handleInputChange("phone", e.target.value)}
-                      placeholder="(713) 555-0123"
+                      placeholder="(111) 111-1111"
                       required
                     />
                   </div>
@@ -224,7 +224,7 @@ export function ContactSection() {
                 </Button>
                 
                 <p className="text-sm text-gray-500 text-center">
-                  We typically respond within 2 hours during business hours (Mon-Fri 7AM-7PM, Sat 8AM-4PM)
+                  We typically respond within 12 hours during business hours (Mon-Fri 7AM-7PM, Sat 8AM-4PM)
                 </p>
               </form>
             </CardContent>
@@ -248,8 +248,8 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Phone</h3>
-                    <a href="tel:+1-713-555-0123" className="text-primary hover:underline text-lg">
-                      (713) 555-0123
+                    <a href="tel:+1-832-363-0392" className="text-primary hover:underline text-lg">
+                      (832) 363-0392
                     </a>
                     <p className="text-gray-600">Emergency services available 24/7</p>
                   </div>
@@ -266,7 +266,7 @@ export function ContactSection() {
                     <a href="mailto:info@fisherwaste.com" className="text-primary hover:underline">
                       info@fisherwaste.com
                     </a>
-                    <p className="text-gray-600">We respond within 2 hours</p>
+                    <p className="text-gray-600">We respond </p>
                   </div>
                 </div>
 

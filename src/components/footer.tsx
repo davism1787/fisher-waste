@@ -1,6 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export function Footer() {
+  const router = useRouter();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -15,7 +18,7 @@ export function Footer() {
               Licensed, insured, and committed to responsible disposal practices.
             </p>
             <div className="flex space-x-4">
-              <a href="tel:+1-713-555-0123" className="text-primary hover:text-primary/80 transition-colors">
+              <a href="tel:+1-832-363-0392" className="text-primary hover:text-primary/80 transition-colors">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
@@ -35,7 +38,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <button 
-                  onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => router.push('/book?service=dumpster')}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Dumpster Rental
@@ -43,7 +46,7 @@ export function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => router.push('/book?service=junk')}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Junk Removal
@@ -51,14 +54,14 @@ export function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => router.push('/book?service=demolition')}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Demolition Services
                 </button>
               </li>
               <li>
-                <a href="tel:+1-713-555-0123" className="text-gray-300 hover:text-white transition-colors">
+                <a href="tel:+1-832-363-0392" className="text-gray-300 hover:text-white transition-colors">
                   Emergency Services
                 </a>
               </li>
@@ -94,7 +97,7 @@ export function Footer() {
                 </button>
               </li>
               <li>
-                <a href="tel:+1-713-555-0123" className="text-gray-300 hover:text-white transition-colors">
+                <a href="tel:+1-832-363-0392" className="text-gray-300 hover:text-white transition-colors">
                   Get Quote
                 </a>
               </li>
@@ -145,7 +148,7 @@ export function Footer() {
             <div>
               <p className="text-red-200 font-medium">24/7 Emergency Services Available</p>
               <p className="text-red-300 text-sm">
-                For urgent waste management needs, call <a href="tel:+1-713-555-0123" className="underline">(713) 555-0123</a> and follow prompts for emergency service
+                For urgent waste management needs, call <a href="tel:+1-832-363-0392" className="underline">(832) 363-0392</a> and follow prompts for emergency service
               </p>
             </div>
           </div>

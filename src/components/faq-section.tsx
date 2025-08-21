@@ -57,7 +57,7 @@ export function FAQSection() {
             <li>League City</li>
             <li>Conroe</li>
           </ul>
-          <p className="mt-3"><strong>Not sure if we serve your area?</strong> Call us at (713) 555-0123 or use our booking form - we&apos;ll let you know if we can reach you!</p>
+          <p className="mt-3"><strong>Not sure if we serve your area?</strong> Call us at (832) 363-0392 or use our booking form - we&apos;ll let you know if we can reach you!</p>
         </div>
       )
     },
@@ -128,7 +128,7 @@ export function FAQSection() {
               <li>Medical waste</li>
             </ul>
           </div>
-          <p><strong>Have questions about specific items?</strong> Call us at (713) 555-0123 - we&apos;re happy to help!</p>
+          <p><strong>Have questions about specific items?</strong> Call us at (832) 363-0392 - we&apos;re happy to help!</p>
         </div>
       )
     }
@@ -169,13 +169,13 @@ export function FAQSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+1-713-555-0123"
+              href="tel:+1-832-363-0392"
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              Call (713) 555-0123
+              Call (832) 363-0392
             </a>
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}

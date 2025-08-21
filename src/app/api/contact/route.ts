@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       submission: submission,
-      message: 'Thank you for your message! We will get back to you within 2 hours during business hours.'
+      message: 'Thank you for your message! We will get back to you within 12 hours during business hours.'
     });
 
   } catch (error) {

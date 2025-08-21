@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
       booking: booking,
       message: serviceType === 'dumpster' 
         ? 'Booking created successfully! You will receive a confirmation email shortly.'
-        : 'Service request submitted successfully! We will contact you within 2 hours to schedule an inspection.'
+        : 'Service request submitted successfully! We will contact you within 12 hours to schedule an inspection.'
     });
 
   } catch (error) {
