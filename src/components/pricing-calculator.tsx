@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
@@ -22,16 +24,15 @@ const PRICING_DATA = {
 } as const;
 
 const SIZES = [10, 15, 20, 30, 40];
-const DURATIONS = [3, 7];
 
 export function PricingCalculator() {
   const router = useRouter();
   const [sizeIndex, setSizeIndex] = useState(0); // Default to 10 yard
-  const [durationIndex, setDurationIndex] = useState(0); // Default to 3 days
+  const [duration, setDuration] = useState(3); // Default to 3 days
   const [isOpen, setIsOpen] = useState(false);
 
   const currentSize = SIZES[sizeIndex];
-  const currentDuration = DURATIONS[durationIndex];
+  const currentDuration = duration;
   const priceKey = `${currentSize}-${currentDuration}` as keyof typeof PRICING_DATA;
   const currentPrice = PRICING_DATA[priceKey];
 
@@ -89,23 +90,23 @@ export function PricingCalculator() {
                 </div>
               </div>
 
-              {/* Duration Slider */}
+              {/* Duration Radio Buttons */}
               <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <label className="text-sm font-medium">Duration</label>
-                  <span className="text-sm text-gray-600">{currentDuration} days</span>
-                </div>
-                <Slider
-                  value={[durationIndex]}
-                  onValueChange={(value) => setDurationIndex(value[0])}
-                  max={1}
-                  step={1}
-                  className="w-full"
-                />
-                <div className="flex justify-between text-xs text-gray-500">
-                  <span>3 days</span>
-                  <span>7 days</span>
-                </div>
+                <label className="text-sm font-medium">Duration</label>
+                <RadioGroup 
+                  value={duration.toString()} 
+                  onValueChange={(value) => setDuration(parseInt(value))}
+                  className="flex gap-6"
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="3" id="duration-3" />
+                    <Label htmlFor="duration-3" className="text-sm font-normal cursor-pointer">3 days</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="7" id="duration-7" />
+                    <Label htmlFor="duration-7" className="text-sm font-normal cursor-pointer">7 days</Label>
+                  </div>
+                </RadioGroup>
               </div>
 
               {/* Price Display */}
@@ -143,10 +144,10 @@ export function PricingCalculator() {
 function MobilePricingCalculator({ onBook }: { onBook: () => void }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [sizeIndex, setSizeIndex] = useState(0);
-  const [durationIndex, setDurationIndex] = useState(0);
+  const [duration, setDuration] = useState(3);
 
   const currentSize = SIZES[sizeIndex];
-  const currentDuration = DURATIONS[durationIndex];
+  const currentDuration = duration;
   const priceKey = `${currentSize}-${currentDuration}` as keyof typeof PRICING_DATA;
   const currentPrice = PRICING_DATA[priceKey];
 
@@ -177,7 +178,7 @@ function MobilePricingCalculator({ onBook }: { onBook: () => void }) {
           <CardHeader className="pb-3">
             <CardTitle className="text-lg">Calculate Price</CardTitle>
             <CardDescription className="text-sm">
-              Adjust the sliders to get your estimate
+              Select your options to get your estimate
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -203,23 +204,23 @@ function MobilePricingCalculator({ onBook }: { onBook: () => void }) {
               </div>
             </div>
 
-            {/* Duration Slider */}
+            {/* Duration Radio Buttons */}
             <div className="space-y-2">
-              <div className="flex justify-between items-center">
-                <label className="text-sm font-medium">Duration</label>
-                <span className="text-sm text-gray-600">{currentDuration} days</span>
-              </div>
-              <Slider
-                value={[durationIndex]}
-                onValueChange={(value) => setDurationIndex(value[0])}
-                max={1}
-                step={1}
-                className="w-full"
-              />
-              <div className="flex justify-between text-xs text-gray-500">
-                <span>3 days</span>
-                <span>7 days</span>
-              </div>
+              <label className="text-sm font-medium">Duration</label>
+              <RadioGroup 
+                value={duration.toString()} 
+                onValueChange={(value) => setDuration(parseInt(value))}
+                className="flex gap-6"
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="3" id="mobile-duration-3" />
+                  <Label htmlFor="mobile-duration-3" className="text-sm font-normal cursor-pointer">3 days</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="7" id="mobile-duration-7" />
+                  <Label htmlFor="mobile-duration-7" className="text-sm font-normal cursor-pointer">7 days</Label>
+                </div>
+              </RadioGroup>
             </div>
 
             {/* Price Display */}
