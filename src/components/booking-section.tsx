@@ -140,6 +140,7 @@ export function BookingSection() {
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                     onClick={() => setServiceType("dumpster")}
+                    data-service-type="dumpster"
                   >
                     <div className="text-center">
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">

@@ -37,6 +37,23 @@ export function PricingCalculator() {
     const element = document.getElementById("booking");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      
+      // Auto-select dumpster service type and focus on Full Name field
+      setTimeout(() => {
+        // Trigger dumpster selection
+        const dumpsterOption = document.querySelector('[data-service-type="dumpster"]') as HTMLElement;
+        if (dumpsterOption) {
+          dumpsterOption.click();
+        }
+        
+        // Focus on Full Name field after service selection
+        setTimeout(() => {
+          const nameInput = document.getElementById("name") as HTMLInputElement;
+          if (nameInput) {
+            nameInput.focus();
+          }
+        }, 100);
+      }, 500);
     }
   };
 
