@@ -59,7 +59,7 @@ export function HeroSection() {
           <Button
             variant="outline"
             size="lg"
-            className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold rounded-lg transition-all"
+            className="border-white bg-transparent text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold rounded-lg transition-all"
             onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
           >
             Learn More
