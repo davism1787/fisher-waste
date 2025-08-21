@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PricingCalculator } from "@/components/pricing-calculator";
 
 export function ServicesSection() {
+  const router = useRouter();
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -26,11 +28,8 @@ export function ServicesSection() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToBooking = () => {
-    const element = document.getElementById("booking");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const navigateToBooking = (service: string) => {
+    router.push(`/book?service=${service}`);
   };
 
   return (
@@ -81,7 +80,7 @@ export function ServicesSection() {
                   Responsible disposal
                 </li>
               </ul>
-              <Button onClick={scrollToBooking} variant="outline" className="w-full">
+              <Button onClick={() => navigateToBooking('junk')} variant="outline" className="w-full">
                 Get Quote
               </Button>
             </CardContent>
@@ -159,7 +158,7 @@ export function ServicesSection() {
                   Permit assistance
                 </li>
               </ul>
-              <Button onClick={scrollToBooking} variant="outline" className="w-full">
+              <Button onClick={() => navigateToBooking('demolition')} variant="outline" className="w-full">
                 Get Quote
               </Button>
             </CardContent>

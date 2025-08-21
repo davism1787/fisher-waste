@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
+  const router = useRouter();
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,11 +21,8 @@ export function HeroSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToBooking = () => {
-    const element = document.getElementById("booking");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const navigateToBooking = () => {
+    router.push('/book');
   };
 
   return (
@@ -50,7 +49,7 @@ export function HeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
-            onClick={scrollToBooking}
+            onClick={navigateToBooking}
             size="lg"
             className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg transition-all transform hover:scale-105"
           >

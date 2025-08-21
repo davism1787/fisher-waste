@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,6 +12,8 @@ import { Textarea } from "@/components/ui/textarea";
 type ServiceType = "dumpster" | "junk" | "demolition" | "";
 
 export function BookingSection() {
+  const searchParams = useSearchParams();
+  const nameInputRef = useRef<HTMLInputElement>(null);
   const [serviceType, setServiceType] = useState<ServiceType>("");
   const [formData, setFormData] = useState({
     name: "",
@@ -23,6 +26,19 @@ export function BookingSection() {
     projectDescription: "",
     urgency: ""
   });
+
+  // Handle URL parameters and auto-selection
+  useEffect(() => {
+    const service = searchParams.get('service') as ServiceType;
+    if (service && ['dumpster', 'junk', 'demolition'].includes(service)) {
+      setServiceType(service);
+      
+      // Focus on name field after service selection
+      setTimeout(() => {
+        nameInputRef.current?.focus();
+      }, 100);
+    }
+  }, [searchParams]);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -124,7 +140,7 @@ export function BookingSection() {
           <CardHeader>
             <CardTitle className="text-2xl">Service Request</CardTitle>
             <CardDescription>
-              Fill out the form below and we&apos;ll get back to you with a quote within 2 hours
+              Fill out the form below and we&apos;ll get back to you with a quote within 12 hours
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -140,6 +156,7 @@ export function BookingSection() {
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                     onClick={() => setServiceType("dumpster")}
+                    data-service-type="dumpster"
                   >
                     <div className="text-center">
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -200,6 +217,7 @@ export function BookingSection() {
                       <Label htmlFor="name">Full Name *</Label>
                       <Input
                         id="name"
+                        ref={nameInputRef}
                         value={formData.name}
                         onChange={(e) => handleInputChange("name", e.target.value)}
                         placeholder="Enter your full name"
@@ -213,7 +231,7 @@ export function BookingSection() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => handleInputChange("phone", e.target.value)}
-                        placeholder="(713) 555-0123"
+                        placeholder="(111) 111-1111"
                         required
                       />
                     </div>
@@ -367,7 +385,7 @@ export function BookingSection() {
                     <p className="text-sm text-gray-500 mt-2 text-center">
                       {serviceType === "dumpster" 
                         ? "Secure online booking with instant confirmation"
-                        : "We'll contact you within 2 hours to schedule an inspection"
+                        : "We'll contact you within 12 hours to schedule an inspection"
                       }
                     </p>
                   </div>

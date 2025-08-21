@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,6 +25,7 @@ const SIZES = [10, 15, 20, 30, 40];
 const DURATIONS = [3, 7];
 
 export function PricingCalculator() {
+  const router = useRouter();
   const [sizeIndex, setSizeIndex] = useState(0); // Default to 10 yard
   const [durationIndex, setDurationIndex] = useState(0); // Default to 3 days
   const [isOpen, setIsOpen] = useState(false);
@@ -33,11 +35,8 @@ export function PricingCalculator() {
   const priceKey = `${currentSize}-${currentDuration}` as keyof typeof PRICING_DATA;
   const currentPrice = PRICING_DATA[priceKey];
 
-  const scrollToBooking = () => {
-    const element = document.getElementById("booking");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const navigateToBooking = () => {
+    router.push('/book?service=dumpster');
   };
 
   const scrollToContact = () => {
@@ -59,7 +58,7 @@ export function PricingCalculator() {
                 Get Price
               </Button>
             </DialogTrigger>
-            <Button onClick={scrollToBooking} className="flex-1">
+            <Button onClick={navigateToBooking} className="flex-1">
               Book Now
             </Button>
           </div>
@@ -125,7 +124,7 @@ export function PricingCalculator() {
               </div>
 
               {/* Action Button */}
-              <Button onClick={scrollToBooking} className="w-full">
+              <Button onClick={navigateToBooking} className="w-full">
                 Book This Dumpster
               </Button>
             </div>
@@ -135,7 +134,7 @@ export function PricingCalculator() {
 
       {/* Mobile View - Inline Expandable */}
       <div className="md:hidden">
-        <MobilePricingCalculator onBook={scrollToBooking} />
+        <MobilePricingCalculator onBook={navigateToBooking} />
       </div>
     </div>
   );

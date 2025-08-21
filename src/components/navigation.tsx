@@ -1,11 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export function Navigation() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Check if current page should have white background (non-hero pages)
+  const isWhiteBackgroundPage = pathname === '/book';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,23 +23,29 @@ export function Navigation() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    // If we're on the home page, scroll directly to the section
+    if (pathname === '/') {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // If we're on another page, navigate to home with hash
+      router.push(`/#${sectionId}`);
     }
   };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "sticky-nav" : "bg-transparent"
+        isScrolled || isWhiteBackgroundPage ? "sticky-nav" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <h1 className={`text-2xl font-bold transition-colors ${
-              isScrolled ? "text-primary" : "text-white"
+              isScrolled || isWhiteBackgroundPage ? "text-primary" : "text-white"
             }`}>
               Fisher Waste Solutions
             </h1>
@@ -44,7 +56,7 @@ export function Navigation() {
               <button
                 onClick={() => scrollToSection("services")}
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  isScrolled 
+                  isScrolled || isWhiteBackgroundPage
                     ? "text-gray-700 hover:text-primary" 
                     : "text-white hover:text-accent"
                 }`}
@@ -54,7 +66,7 @@ export function Navigation() {
               <button
                 onClick={() => scrollToSection("faq")}
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  isScrolled 
+                  isScrolled || isWhiteBackgroundPage
                     ? "text-gray-700 hover:text-primary" 
                     : "text-white hover:text-accent"
                 }`}
@@ -64,7 +76,7 @@ export function Navigation() {
               <button
                 onClick={() => scrollToSection("contact")}
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  isScrolled 
+                  isScrolled || isWhiteBackgroundPage
                     ? "text-gray-700 hover:text-primary" 
                     : "text-white hover:text-accent"
                 }`}
@@ -90,7 +102,7 @@ export function Navigation() {
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`transition-colors ${
-                isScrolled ? "text-gray-700 hover:text-primary" : "text-white hover:text-blue-200"
+                isScrolled || isWhiteBackgroundPage ? "text-gray-700 hover:text-primary" : "text-white hover:text-blue-200"
               }`}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -105,7 +117,7 @@ export function Navigation() {
       {isMobileMenuOpen && (
         <div className="md:hidden">
           <div className={`px-2 pt-2 pb-3 space-y-1 shadow-lg ${
-            isScrolled ? "bg-white border-t" : "bg-black/90 backdrop-blur-sm"
+            isScrolled || isWhiteBackgroundPage ? "bg-white border-t" : "bg-black/90 backdrop-blur-sm"
           }`}>
             <button
               onClick={() => {
@@ -113,7 +125,7 @@ export function Navigation() {
                 setIsMobileMenuOpen(false);
               }}
               className={`block px-3 py-2 text-base font-medium w-full text-left transition-colors ${
-                isScrolled 
+                isScrolled || isWhiteBackgroundPage
                   ? "text-gray-700 hover:text-primary hover:bg-gray-50" 
                   : "text-white hover:text-blue-200 hover:bg-white/10"
               }`}
@@ -126,7 +138,7 @@ export function Navigation() {
                 setIsMobileMenuOpen(false);
               }}
               className={`block px-3 py-2 text-base font-medium w-full text-left transition-colors ${
-                isScrolled 
+                isScrolled || isWhiteBackgroundPage
                   ? "text-gray-700 hover:text-primary hover:bg-gray-50" 
                   : "text-white hover:text-blue-200 hover:bg-white/10"
               }`}
@@ -139,7 +151,7 @@ export function Navigation() {
                 setIsMobileMenuOpen(false);
               }}
               className={`block px-3 py-2 text-base font-medium w-full text-left transition-colors ${
-                isScrolled 
+                isScrolled || isWhiteBackgroundPage
                   ? "text-gray-700 hover:text-primary hover:bg-gray-50" 
                   : "text-white hover:text-blue-200 hover:bg-white/10"
               }`}
