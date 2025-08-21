@@ -74,7 +74,14 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <button 
-                  onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => {
+                    const element = document.getElementById("services");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      router.push("/#services");
+                    }
+                  }}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   About Our Services
@@ -82,7 +89,14 @@ export function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => {
+                    const element = document.getElementById("faq");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      router.push("/#faq");
+                    }
+                  }}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   FAQ
@@ -90,16 +104,26 @@ export function Footer() {
               </li>
               <li>
                 <button 
-                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => {
+                    const element = document.getElementById("contact");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      router.push("/#contact");
+                    }
+                  }}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Contact Us
                 </button>
               </li>
               <li>
-                <a href="tel:+1-832-363-0392" className="text-gray-300 hover:text-white transition-colors">
+                <button 
+                  onClick={() => router.push('/book')}
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
                   Get Quote
-                </a>
+                </button>
               </li>
             </ul>
           </div>
