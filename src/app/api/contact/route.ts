@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create contact submission
-    const { data: submission, error: submissionError } = await supabase
+    const { error: submissionError } = await supabase
       .from('contact_submissions')
       .insert({
         name: name.trim(),
@@ -42,9 +42,7 @@ export async function POST(request: NextRequest) {
         message: message.trim(),
         contact_method: contactMethod || 'email',
         status: 'new'
-      })
-      .select()
-      .single();
+      });
 
     if (submissionError) {
       console.error('Contact submission error:', submissionError);
@@ -60,7 +58,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      submission: submission,
       message: 'Thank you for your message! We will get back to you within 12 hours during business hours.'
     });
 
