@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export function Navigation() {
   const pathname = usePathname();
@@ -42,13 +43,17 @@ export function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
-            <h1 className={`text-2xl font-bold transition-colors ${
-              isScrolled || isWhiteBackgroundPage ? "text-primary" : "text-white"
-            }`}>
-              Fisher Waste Solutions
-            </h1>
+            <Image
+              src={isScrolled || isWhiteBackgroundPage ? "/4.svg" : "/5.svg"}
+              alt="Fisher Waste Solutions"
+              width={300}
+              height={60}
+              className="transition-all duration-300"
+              style={{ width: '200px', height: 'auto' }}
+              priority
+            />
           </div>
 
           <div className="hidden md:block">
