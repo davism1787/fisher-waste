@@ -18,9 +18,7 @@ const nextConfig: NextConfig = {
 
     return config;
   },
-  experimental: {
-    serverComponentsExternalPackages: ['@supabase/supabase-js', 'supabase'],
-  },
+  serverExternalPackages: ['@supabase/supabase-js', 'supabase'],
 };
 
 export default nextConfig;
