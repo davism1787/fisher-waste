@@ -1,6 +1,3 @@
 {
-    "build": {
-      "env": {},
-    "ignore": ["supabase/**"]
-  }
+  "buildCommand": "next build"
 }
