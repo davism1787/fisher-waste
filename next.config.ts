@@ -1,24 +1,25 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  webpack: (config, { isServer }) => {
-    // Exclude the supabase folder from being processed by Webpack
-    if (isServer) {
-      config.externals = [
-        ...(Array.isArray(config.externals) ? config.externals : []),
-        /^supabase\//, // Regex to exclude anything in the supabase folder
-      ];
-    }
+  webpack: (config) => {
+    // Completely ignore supabase directory
+    config.module.rules.push({
+      test: /supabase/,
+      use: 'ignore-loader'
+    });
 
-    // Optional: Keep watchOptions for development if needed
+    // Add ignore patterns
     config.watchOptions = {
       ...config.watchOptions,
-      ignored: ['**/supabase/**'],
+      ignored: ['**/supabase/**', '**/node_modules/**'],
     };
 
     return config;
   },
-  serverExternalPackages: ['@supabase/supabase-js', 'supabase'],
+  // Ignore TypeScript errors in supabase directory
+  typescript: {
+    ignoreBuildErrors: false,
+  },
 };
 
 export default nextConfig;
